@@ -1,7 +1,7 @@
-[--solutionname--] Details
+[iotsolution-grpc-3f10] Details
 ============================
 
-Generated On: --datetime-- UTC
+Generated On: 2024-12-24 22:26:01 UTC
 
 TML Solution DAG Parameters' Details: User Chosen Parametets
 ----------------------------
@@ -14,19 +14,19 @@ STEP 1: Get TML Core Params: `tml_system_step_1_getparams_dag <https://tml.readt
    * - **User Parameter**
      - **Chosen Value**
    * - solutionname
-     - --solutionname--
+     - iotsolution-grpc-3f10
    * - solutiontitle
-     - --solutiontitle--
+     - My Solution Title
    * - solutiondescription
-     - --solutiondescription--
+     - This is an awesome real-time solution built by TSS
    * - brokerhost
-     - --brokerhost--
+     - 127.0.0.1
    * - brokerport
-     - --brokerport--
+     - 9092
    * - cloudusername
-     - --cloudusername--
+     - None
    * - ingestdatamethod
-     - --ingestdatamethod--
+     - gRPC
  
 STEP 2: Create Kafka Topics: `tml_system_step_2_kafka_createtopic_dag <https://tml.readthedocs.io/en/latest/tmlbuilds.html#step-2-create-kafka-topics-tml-system-step-2-kafka-createtopic-dag>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -36,29 +36,29 @@ STEP 2: Create Kafka Topics: `tml_system_step_2_kafka_createtopic_dag <https://t
    * - **User Parameter**
      - **Chosen Value**
    * - companyname
-     - --companyname--
+     - Otics
    * - myname
-     - --myname--
+     - Sebastian
    * - myemail
-     - --myemail--
+     - Sebastian.Maurice
    * - mylocation
-     - --mylocation--
+     - Toronto
    * - replication
-     - --replication--
+     - 1
    * - numpartitions
-     - --numpartitions--
+     - 1
    * - enabletls
-     - --enabletls--
+     - 1
    * - microserviceid
-     - --microserviceid--
+     - 
    * - raw_data_topic
-     - --raw_data_topic--
+     - iot-raw-data
    * - preprocess_data_topic
-     - --preprocess_data_topic--
+     - iot-preprocess,iot-preprocess2
    * - ml_data_topic
-     - --ml_data_topic--
+     - ml-data
    * - prediction_data_topic
-     - --prediction_data_topic--
+     - prediction-data
 
 STEP 3: `Produce to Kafka Topics <https://tml.readthedocs.io/en/latest/tmlbuilds.html#step-3-produce-to-kafka-topics>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -68,25 +68,25 @@ STEP 3: `Produce to Kafka Topics <https://tml.readthedocs.io/en/latest/tmlbuilds
    * - **User Parameter**
      - **Chosen Value**
    * - PRODUCETYPE
-     - --PRODUCETYPE--
+     - gRPC
    * - TOPIC
-     - --TOPIC--
+     - iot-raw-data
    * - PORT
-     - --PORT--
+     - 39399
    * - IDENTIFIER
-     - --IDENTIFIER--
+     - TML solution
    * - HTTPADDR
-     - --HTTPADDR--
+     - https://
    * - FROMHOST
-     - --FROMHOST--
+     - smaurice,127.0.1.1
    * - TOHOST
-     - --TOHOST--
+     - 0.0.0.0
    * - CLIENTPORT
-     - --CLIENTPORT--
+     - 9001
    * - TSS_CLIENTPORT
-     - --TSSCLIENTPORT--
+     - 9001
    * - TML_CLIENTPORT
-     - --TMLCLIENTPORT--
+     - 9002
 
 STEP 4: Preprocesing Data: `tml-system-step-4-kafka-preprocess-dag <https://tml.readthedocs.io/en/latest/tmlbuilds.html#step-4-preprocesing-data-tml-system-step-4-kafka-preprocess-dag>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -96,33 +96,33 @@ STEP 4: Preprocesing Data: `tml-system-step-4-kafka-preprocess-dag <https://tml.
    * - **User Parameter**
      - **Chosen Value**
    * - raw_data_topic
-     - --raw_data_topic--
+     - iot-raw-data
    * - preprocess_data_topic
-     - --preprocess_data_topic--
+     - iot-preprocess,iot-preprocess2
    * - preprocessconditions
-     - --preprocessconditions--
+     - 
    * - delay
-     - --delay--
+     - 70
    * - array
-     - --array--
+     - 0
    * - saveasarray
-     - --saveasarray--
+     - 1
    * - topicid
-     - --topicid--
+     - -999
    * - rawdataoutput
-     - --rawdataoutput--
+     - 1
    * - asynctimeout
-     - --asynctimeout--
+     - 120
    * - timedelay
-     - --timedelay--
+     - 0
    * - preprocesstypes
-     - --preprocesstypes--
+     - anomprob,trend,avg
    * - pathtotmlattrs
      - --pathtotmlattrs--
    * - identifier
-     - --identifier--
+     - IoT device performance and failures
    * - jsoncriteria
-     - --jsoncriteria--
+     - uid=metadata.dsn,filter:allrecords~subtopics=metadata.property_name~values=datapoint.value~identifiers=metadata.display_name~datetime=datapoint.updated_at~msgid=datapoint.id~latlong=lat:long
 
 STEP 4b: Preprocesing Data: `tml-system-step-4b-kafka-preprocess-dag <https://tml.readthedocs.io/en/latest/tmlbuilds.html#step-4b-preprocesing-data-tml-system-step-4b-kafka-preprocess-dag>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -132,33 +132,33 @@ STEP 4b: Preprocesing Data: `tml-system-step-4b-kafka-preprocess-dag <https://tm
    * - **User Parameter**
      - **Chosen Value**
    * - raw_data_topic
-     - --raw_data_topic2--
+     - iot-preprocess
    * - preprocess_data_topic
-     - --preprocess_data_topic2--
+     - iot-preprocess2
    * - preprocessconditions
-     - --preprocessconditions2--
+     - 
    * - delay
-     - --delay2--
+     - 70
    * - array
-     - --array2--
+     - 0
    * - saveasarray
-     - --saveasarray2--
+     - 1
    * - topicid
-     - --topicid2--
+     - -1
    * - rawdataoutput
-     - --rawdataoutput2--
+     - 1
    * - asynctimeout
-     - --asynctimeout2--
+     - 120
    * - timedelay
-     - --timedelay2--
+     - 0
    * - preprocesstypes
-     - --preprocesstypes2--
+     - avg,avg
    * - pathtotmlattrs
      - --pathtotmlattrs2--
    * - identifier
-     - --identifier2--
+     - TML solution
    * - jsoncriteria
-     - --jsoncriteria2--
+     - 
 
 STEP 5: Entity Based Machine Learning : `tml-system-step-5-kafka-machine-learning-dag <https://tml.readthedocs.io/en/latest/tmlbuilds.html#step-5-entity-based-machine-learning-tml-system-step-5-kafka-machine-learning-dag>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -168,13 +168,13 @@ STEP 5: Entity Based Machine Learning : `tml-system-step-5-kafka-machine-learnin
    * - **User Parameter**
      - **Chosen Value**
    * - preprocess_data_topic
-     - --preprocess_data_topic--
+     - iot-preprocess,iot-preprocess2
    * - ml_data_topic
-     - --ml_data_topic--
+     - ml-data
    * - modelruns
      - --modelruns--
    * - offset
-     - --offset--
+     - -1
    * - islogistic
      - --islogistic--
    * - networktimeout
@@ -190,7 +190,7 @@ STEP 5: Entity Based Machine Learning : `tml-system-step-5-kafka-machine-learnin
    * - rollbackoffsets
      - --rollbackoffsets--
    * - topicid
-     - --topicid--
+     - -999
    * - consumefrom
      - --consumefrom--
    * - fullpathtotrainingdata
@@ -212,7 +212,7 @@ STEP 6: Entity Based Predictions: `tml-system-step-6-kafka-predictions-dag <http
    * - **User Parameter**
      - **Chosen Value**
    * - preprocess_data_topic
-     - --preprocess_data_topic--
+     - iot-preprocess,iot-preprocess2
    * - ml_prediction_topic
      - --ml_prediction_topic--
    * - streamstojoin
@@ -222,9 +222,9 @@ STEP 6: Entity Based Predictions: `tml-system-step-6-kafka-predictions-dag <http
    * - consumefrom
      - --consumefrom2--
    * - offset
-     - --offset--
+     - -1
    * - delay
-     - --delay--
+     - 70
    * - usedeploy
      - --usedeploy--
    * - networktimeout
@@ -232,7 +232,7 @@ STEP 6: Entity Based Predictions: `tml-system-step-6-kafka-predictions-dag <http
    * - maxrows
      - --maxrows--
    * - topicid
-     - --topicid--
+     - -999
    * - pathtoalgos
      - --pathtoalgos--
 
@@ -244,21 +244,21 @@ STEP 7: Real-Time Visualization: `tml-system-step-7-kafka-visualization-dag <htt
    * - **User Parameter**
      - **Chosen Value**
    * - vipervizport
-     - --vipervizport--
+     - 49689
    * - topic
-     - --topic--
+     - iot-preprocess,iot-preprocess2
    * - dashboardhtml
-     - --dashboardhtml--
+     - iot-failure-seneca.html
    * - secure
-     - --secure--
+     - 1
    * - offset
-     - --offset--
+     - -1
    * - append
-     - --append--
+     - 0
    * - chip
-     - --chip--
+     - amd64
    * - rollbackoffset
-     - --rollbackoffset--
+     - 400
 
 STEP 8: `tml_system_step_8_deploy_solution_to_docker_dag <https://tml.readthedocs.io/en/latest/tmlbuilds.html#step-8-deploy-tml-solution-to-docker-tml-system-step-8-deploy-solution-to-docker-dag>`_
 ^^^^^^^^^^^^^^^^^^^^^
@@ -267,9 +267,31 @@ STEP 8: `tml_system_step_8_deploy_solution_to_docker_dag <https://tml.readthedoc
    * - **User Parameter**
      - **Chosen Value**
    * - Docker Container
-     - --dockercontainer--
+     - maadsdocker/iotsolution-grpc-3f10-amd64 (https://hub.docker.com/r/maadsdocker/iotsolution-grpc-3f10-amd64)
    * - Docker Run Command
-     - --dockerrun--
+     - docker run -d -p 50895:50895 -p 50491:50491 -p 37977:37977 -p 9002:9002 \
+          --env TSS=0 \
+          --env SOLUTIONNAME=iotsolution-grpc-3f10 \
+          --env SOLUTIONDAG=solution_preprocessing_dag_grpc-iotsolution-grpc-3f10 \
+          --env GITUSERNAME=smaurice101 \
+          --env GITREPOURL=https://github.com/smaurice101/raspberrypitss.git \
+          --env SOLUTIONEXTERNALPORT=50895 \
+          -v /var/run/docker.sock:/var/run/docker.sock:z  \
+          --env CHIP=amd64 \
+          --env SOLUTIONAIRFLOWPORT=50491  \
+          --env SOLUTIONVIPERVIZPORT=37977 \
+          --env DOCKERUSERNAME='maadsdocker' \
+          --env CLIENTPORT=9002  \
+          --env EXTERNALPORT=39399 \
+          --env KAFKACLOUDUSERNAME='MUHRHBPKJYPROKBX' \
+          --env VIPERVIZPORT=49689 \
+          --env MQTTUSERNAME='smaurice' \
+          --env AIRFLOWPORT=9000  \
+          --env GITPASSWORD='<Enter Github Password>' \
+          --env KAFKACLOUDPASSWORD='<Enter API secret>' \
+          --env MQTTPASSWORD='<Enter mqtt password>' \
+          --env READTHEDOCS='<Enter Readthedocs token>' \
+          maadsdocker/iotsolution-grpc-3f10-amd64
 
 STEP 9: `tml_system_step_9_privategpt_qdrant_dag <https://tml.readthedocs.io/en/latest/tmlbuilds.html#step-9-privategpt-and-qdrant-integration-tml-system-step-9-privategpt-qdrant-dag>`_
 ^^^^^^^^^^^^^^^^^^^^^
@@ -290,13 +312,13 @@ STEP 9: `tml_system_step_9_privategpt_qdrant_dag <https://tml.readthedocs.io/en/
    * - pgpt_data_topic
      - --pgpt_data_topic--
    * - offset
-     - --offset--
+     - -1
    * - rollbackoffset
-     - --rollbackoffset--
+     - 400
    * - topicid
-     - --topicid--
+     - -999
    * - enabletls
-     - --enabletls--
+     - 1
    * - partition
      - --partition--
    * - prompt
@@ -329,4 +351,4 @@ STEP 10: `tml_system_step_10_documentation_dag <https://tml.readthedocs.io/en/la
    * - **User Parameter**
      - **Chosen Value**
    * - Solution Documentation URL
-     - --readthedocs--
+     - https://iotsolution-grpc-3f10.readthedocs.io
